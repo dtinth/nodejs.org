@@ -1,9 +1,9 @@
+import { ThemeProvider } from 'next-themes';
 import * as NextImage from 'next/image';
 import App from '../pages/_app.mdx';
 import { pageProps } from './constants';
 import '../styles/styles.scss';
 import '../styles/tokens.scss';
-import { ThemeProvider } from 'next-themes';
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {
