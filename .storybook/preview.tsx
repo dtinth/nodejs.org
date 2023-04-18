@@ -1,12 +1,13 @@
 import { ThemeProvider } from 'next-themes';
-import * as NextImage from 'next/image';
+import type { Preview } from '@storybook/react';
+import NextImage from 'next/image';
 import App from '../pages/_app.mdx';
 import { pageProps } from './constants';
+
 import '../styles/styles.scss';
 import '../styles/tokens.scss';
 
-/** @type { import('@storybook/react').Preview } */
-const preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -31,11 +32,9 @@ export const decorators = [
   ),
 ];
 
-const OriginalNextImage = NextImage.default;
-
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
-  value: props => <OriginalNextImage {...props} unoptimized />,
+  value: props => <NextImage {...props} unoptimized />,
 });
 
 export default preview;
